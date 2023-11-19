@@ -51,7 +51,7 @@ function! self.get_events_one_month(year, month, ...) dict abort
   endif
   return events
 endfunction
-
+let g:get_events_one_month_ref = function('s:get_events_one_month')
 function! s:self.clear_cache() dict abort
   let self.__events = {}
   let self._holidays = {}
