@@ -34,3 +34,6 @@ endfunction
 
 let &cpo = s:save_cpo
 unlet s:save_cpo
+function! calendar#get_events_one_month(year, month, ...) abort
+    return s:self.get_events_one_month(a:year, a:month)
+endfunction
