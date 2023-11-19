@@ -34,7 +34,7 @@ function! s:self.updated() dict abort
   return [self._updated]
 endfunction
 
-function! s:self.get_events_one_month(year, month, ...) dict abort
+function! self.get_events_one_month(year, month, ...) dict abort
   let events = self.event_source.get_events_one_month(a:year, a:month, a:0 && a:1)
   if self.event_source_name !=# 'google'
     let holiday = self.get_holidays(a:year, a:month)
