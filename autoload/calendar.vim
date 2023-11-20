@@ -8,8 +8,8 @@
 function! g:SomeFunction(year, month)
     let g:Get_events_one_month_ref = function('calendar#event#get_events_one_month')
     let events = call(g:Get_events_one_month_ref, [a:year, a:month])
-    print(events)
-    return month
+    echomsg events
+    return a:month
 endfunction
 
 let s:save_cpo = &cpo
