@@ -4,14 +4,6 @@
 " License: MIT License
 " Last Change: 2022/12/13 00:16:52.
 " =============================================================================
-
-function! g:SomeFunction(year, month)
-    let g:Get_events_one_month_ref = function('calendar#event#get_events_one_month')
-    let events = call(g:Get_events_one_month_ref, [a:year, a:month])
-    echomsg events
-    return a:month
-endfunction
-
 let s:save_cpo = &cpo
 set cpo&vim
 
@@ -38,6 +30,12 @@ function! calendar#new(args) abort
   call b:calendar.go(calendar#argument#day(args, calendar#day#today().get_ymd()))
 
 endfunction
+
+function! g:GetEventsOneMonth(year, month) abort
+  let l:calendar_event = calendar#event#new()
+  return l:calendar_event.get_events_one_month(a:year, a:month)
+endfunction
+
 
 let &cpo = s:save_cpo
 unlet s:save_cpo
