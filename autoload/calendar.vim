@@ -5,6 +5,8 @@
 " Last Change: 2022/12/13 00:16:52.
 " =============================================================================
 
+let g:get_events_one_month_ref = function('calendar#get_events_one_month')
+let events = call(g:get_events_one_month_ref, [year, month])
 let s:save_cpo = &cpo
 set cpo&vim
 
@@ -34,14 +36,5 @@ endfunction
 
 let &cpo = s:save_cpo
 unlet s:save_cpo
-" function! calendar#get_events_one_month(year, month, ...) abort
-"     return s:self.get_events_one_month(a:year, a:month)
-" endfunction
-"
-" function! calendar#get_events_one_month_wrapper(year, month) abort
-"     print(month)
-"     return execute('call s:get_events_one_month(' . a:year . ', ' . a:month . ')')
-" endfunction
-function! calendar#get_events_one_month(year, month) abort
-    return call(g:get_events_one_month_ref, [a:year, a:month])
-endfunction
+
+
