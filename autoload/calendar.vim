@@ -5,8 +5,8 @@
 " Last Change: 2022/12/13 00:16:52.
 " =============================================================================
 
-let g:get_events_one_month_ref = function('calendar#get_events_one_month')
-let events = call(g:get_events_one_month_ref, [year, month])
+let g:Get_events_one_month_ref = function('calendar#event#get_events_one_month')
+let events = call(g:Get_events_one_month_ref, [year, month])
 let s:save_cpo = &cpo
 set cpo&vim
 
